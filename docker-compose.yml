@@ -1,0 +1,19 @@
+version: '3.1'
+services:
+  #node.js
+    node:
+      build: ./node
+      #volumes:
+        #- ./node:/var/node-app
+      ports:
+        - '8080:8080'
+      links:
+        - mongo-server
+  #mongo
+    mongo-server:
+      #image: mongo
+      build: ./Mongo
+      restart: always
+      #Using hands-on
+      ports:
+        - '27017:27017'
